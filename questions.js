@@ -1,7 +1,11 @@
 $(document).ready(function(){
 const timerslotEl = $("#timerslot")
-const mainEl = document.getElementById("main");
-const qholder = document.querySelector(".questionholder");
+const mainEl = $("#main");
+const qholder = $(".questionholder");
+const h2El = $("h2");
+let counter = 0;
+const cquestion = $("#currentquestion");
+const qtitle = $("#questionholder");
 
 
 timerslotEl.hide();
@@ -20,7 +24,7 @@ function setTime() {
     }, 1000);
 }
 function startQuiz() {
-    document.getElementById("quiz1").innerHTML = "Answer the following questions in this quiz within the time limit. Keep in mind that incorrect answers will come with a penalty and will impact your score/time by nine seconds.";
+    
     
     setTime();
         elephant();
@@ -30,23 +34,36 @@ function elephant() {
     // questions.forEach(element => {
         
     // });
-    for (i = 0; i < questions.length; i++) {
-        var qtitle = document.createElement('h2');
-        qtitle.innerHTML = questions[i].title;
-        // $(".qholder").append("foo");
-        qholder.append(qtitle);
-        // document.qholder.appendChild(qtitle);
 
+    // qtitle.innerHTML = questions[i].title;
+    qtitle.html(questions[counter].title); 
+    // (whatever I want to appear on the page I would set up this way. )
+
+    for (let i = 0; i < questions[counter].choices.length; i++) {
+        // questions[counting through the number of questions].and going through all of the choices until it runs out
+        const qchoices = $("<button>");
+        // anytime creating an element use angle braces for example <button>
+        qchoices.click(answerclick).text(questions[counter].choices[i]);
+        cquestion.append(qchoices)
+        // we don't need quotes around qchoices because it is a variable that's equal to an element (button) which is already in quotes.
+        
         console.log(questions[i].title);
     }
 }
 
+function answerclick () {
+    counter++
+    // take whatever it is now and add one
+}
+
 function sendMessage() {
-    timerslotEl.textContent = " ";
+    timerslotEl.textContent = "words in here";
+    // timerslotEl.text("any text I want to show on the page and will show in the timerslot div") 
 
     // const textEl = document.createElement("text");
 
     h2El.textContent = "End of Quiz"
+
     mainEl.appendChild(h2El);
 }
 
@@ -74,27 +91,8 @@ const questions = [
         choices: ["choice 1", "choice 2", "choice 3", "choice 4"],
         answer: "choice 2"
     },
-    {
-        title: "Question 5",
-        choices: ["choice 1", "choice 2", "choice 3", "choice 4"],
-        answer: "choice 4"
-    },
-    {
-        title: "Question 6",
-        choices: ["choice 1", "choice 2", "choice 3", "choice 4"],
-        answer: "choice 3"
-    },
-    {
-        title: "Question 7",
-        choices: ["choice 1", "choice 2", "choice 3", "choice 4"],
-        answer: "choice 1"
-    },
-    {
-        title: "Question 8",
-        choices: ["choice 1", "choice 2", "choice 3", "choice 4"],
-        answer: "choice 4"
-    },
 
 ]
+// $("#startQuiz").click(button);
 $("#startQuiz").click(startQuiz);
 });

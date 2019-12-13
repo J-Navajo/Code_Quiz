@@ -10,12 +10,15 @@
 </head>
 <body>
     <h1 class="time">Coding Quiz</h1>
+    <p id="quiz1">Answer the following questions in this quiz within the time limit. Keep in mind that incorrect answers will come with a penalty and will impact your score/time by nine seconds.</p>
     <div id="main"></div>
     <div id="timerslot">120 time left</div>
     
     <button id="startQuiz">Start Here</button>
-    <p id="quiz1"></p>
-    <div class= "questionholder"></div>
+    
+    <div id= "currentquestion">
+        <h2 id = "questionholder"></h2>
+    </div>
     
     <script src="questions.js"></script>
 </body>
