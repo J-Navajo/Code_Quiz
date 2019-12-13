@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
 </head>
 <body>
-    <h1>Coding Quiz</h1>
-    <button onclick="startQuiz()">Start Here</button>
-    <p id="text"></p>
-    <script>
-        function startQuiz() {
-            document.getElementById("text").innerHTML = "Answer the following questions in this quiz within the time limit. Keep in mind that incorrect answers will come with a penalty and will impact your score/time by nine seconds.";
-        }
-        
-        </script>
+    <h1 class="time">Coding Quiz</h1>
+    <div id="main"></div>
+    <div id="timerslot">120 time left</div>
+    
+    <button id="startQuiz">Start Here</button>
+    <p id="quiz1"></p>
+    <div class= "questionholder"></div>
+    
+    <script src="questions.js"></script>
 </body>
 </html>
