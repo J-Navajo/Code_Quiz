@@ -1,0 +1,15 @@
+.header {
+    text-align: center;
+    padding: 20px 20px 10px 20px;
+    margin: 100px 100px 0px 100px;
+    
+    background-color: lightgrey;
+}
+
+.container{
+    text-align: left;
+    margin: auto;
+    padding: 10px 0px 10px 10px;
+    border: 2px teal solid;
+    background-color: white;
+}
