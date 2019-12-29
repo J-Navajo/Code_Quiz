@@ -24,13 +24,14 @@ function setTime() {
     }, 1000);
 }
 function startQuiz() {
-    
+    $("#startQuiz").hide();
     
     setTime();
-        elephant();
+        askquestion();
 }
 
-function elephant() {
+function askquestion() {
+    $("#questionholder").empty();
     // questions.forEach(element => {
         
     // });
@@ -44,7 +45,8 @@ function elephant() {
         const qchoices = $("<button>");
         // anytime creating an element use angle braces for example <button>
         qchoices.click(answerclick).text(questions[counter].choices[i]);
-        cquestion.append(qchoices)
+        
+        $("#questionholder").append(qchoices);
         // we don't need quotes around qchoices because it is a variable that's equal to an element (button) which is already in quotes.
         
         console.log(questions[i].title);
@@ -53,6 +55,7 @@ function elephant() {
 
 function answerclick () {
     counter++
+    askquestion();
     // take whatever it is now and add one
 }
 
